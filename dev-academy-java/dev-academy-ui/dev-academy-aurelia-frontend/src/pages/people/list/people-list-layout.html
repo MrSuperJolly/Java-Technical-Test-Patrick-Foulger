@@ -1,0 +1,32 @@
+<template>
+  <h2 class="title">${heading}</h2>
+
+  <table class="table is-stripped is-fullwidth">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Palindrome</th>
+        <th>Authorised</th>
+        <th>Enabled</th>
+        <th>Colours</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!--
+        TODO: Step 6
+        Add styles to Palindrome, Authorised and Enabled values.
+        When the value is Yes the text colour should be Green.
+        When the value is No the text colour should be Red.
+      -->
+
+      <tr repeat.for="person of people" person.bind="person">
+        <td><a class="is-link" href="/#/people/${person.id}">${person.fullName}</a></td>
+        <td><font color="${person.palindrome ? 'Green' : 'Red'}">${person.palindrome ? 'Yes' : 'No'}</font></td>
+        <td><font color="${person.authorised ? 'Green' : 'Red'}">${person.authorised ? 'Yes' : 'No'}</font></td>
+        <td><font color="${person.enabled ? 'Green' : 'Red'}">${person.enabled ? 'Yes' : 'No'}</font></td>
+        <td>${person.colours | colourNames }</td>
+      </tr>
+    </tbody>
+  </table>
+</template>
